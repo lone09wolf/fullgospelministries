@@ -1,0 +1,30 @@
+/* ...existing code... */
+#heroCarousel .carousel-item {
+    height: calc(700px - 56px); /* Adjust for sticky navbar height (default Bootstrap navbar is 56px) */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+#heroCarousel .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-shadow: 2px 2px 8px #000;
+}
+
+/* Remove text shadow from "Join Us This Sunday" button */
+#heroCarousel .carousel-caption .btn {
+    text-shadow: none;
+}
+
+nav.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+}
+
+/* ...existing code... */
