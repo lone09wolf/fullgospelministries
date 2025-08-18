@@ -100,31 +100,32 @@
 
     <!-- Hero Section -->
     <section id="hero" class="d-flex align-items-center justify-content-center"
-        style="min-height: 90vh; background: url('images/backgroundimage.png') center/cover no-repeat; border-radius: 2rem; margin: 16px 0; box-shadow: 0 8px 32px rgba(7,33,54,0.15); position: relative; overflow: hidden;"
+        style="min-height: 90vh; background: url('images/BRANDING/church-front.jpg') center/cover no-repeat; border-radius: 2rem; margin: 16px 0; box-shadow: 0 8px 32px rgba(7,33,54,0.15); position: relative; overflow: hidden;"
         data-aos="fade-up">
         <div class="container text-center px-3 d-flex flex-column align-items-center justify-content-center"
             style="z-index: 2; position: relative;">
             <img src="images/banner-transparent-logo.png" alt="Full Gospel Revival Ministries Logo"
-                class="img-fluid mb-3" style="width: 100px;">
+                class="img-fluid mb-3" style="width: 180px;">
             <h1 class="fw-bold text-white mb-2" style="font-size: 2.5rem; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">
-                Welcome to Full Gospel Revival
-                Ministries</h1>
+                Welcome to Full Gospel Revival Ministries
+            </h1>
             <p class="lead text-white mb-3" style="font-size: 1.2rem; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
                 Empowering lives through faith, worship, and community.
             </p>
-            <!-- Animated Live Service Link -->
-            <div id="live-service-hero" class="d-block mt-3 mb-3 animated-attention w-100"
-                style="z-index: 10; max-width: 500px;">
+            <!-- Live Service Link (active only Sundays 10am-2pm) -->
+            <div id="live-service-hero" class="d-block mt-3 mb-3 w-100"
+                style="z-index: 10; max-width: 500px; display: none;">
                 <div class="alert alert-success d-flex flex-column flex-md-row align-items-center justify-content-center rounded-4 shadow-lg mb-0 px-3 py-2"
                     style="font-size: 1rem;">
                     <span class="fw-bold mb-2 mb-md-0 me-md-2" style="animation: pulse 1s infinite;">🔴 Live Now</span>
                     <span class="mb-2 mb-md-0 me-md-3 text-center">Sunday Service is streaming!</span>
-                    <a href="https://example.com/livestream" target="_blank"
+                    <a href="https://www.facebook.com/profile.php?id=61566530638456" target="_blank"
                         class="btn btn-success fw-bold px-3 py-2 ms-md-3" style="animation: bounce 1.5s infinite;">Watch
                         Live</a>
                 </div>
             </div>
             <style>
+                /* keep existing animations and mobile spacing */
                 @keyframes pulse {
                     0% {
                         opacity: 1;
@@ -148,23 +149,6 @@
 
                     50% {
                         transform: translateY(-8px);
-                    }
-                }
-
-                .animated-attention {
-                    animation: fadeLoop 2.5s infinite;
-                }
-
-                @keyframes fadeLoop {
-
-                    0%,
-                    80%,
-                    100% {
-                        opacity: 1;
-                    }
-
-                    40% {
-                        opacity: 0.5;
                     }
                 }
 
@@ -200,6 +184,26 @@
         </div>
         <!-- Overlay for readability -->
         <div class="hero-overlay"></div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                function showLiveLinkIfSunday() {
+                    var now = new Date();
+                    var day = now.getDay(); // 0 = Sunday
+                    var hour = now.getHours();
+                    var liveLink = document.getElementById("live-service-hero");
+                    if (liveLink) {
+                        // show only Sundays between 10:00 (inclusive) and 14:00 (exclusive)
+                        if (day === 0 && hour >= 10 && hour < 14) {
+                            liveLink.style.display = "block";
+                        } else {
+                            liveLink.style.display = "none";
+                        }
+                    }
+                }
+                showLiveLinkIfSunday();
+                setInterval(showLiveLinkIfSunday, 60000); // re-check every minute
+            });
+        </script>
     </section>
 
     <!-- About Us Section -->
@@ -212,17 +216,19 @@
             </p>
             <div class="row justify-content-center g-3">
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <img src="images/BRANDING/woman praying.jpg" class="img-fluid rounded shadow" alt="Church Vision">
+                    <img src="images/BRANDING/sbu-talking.jpeg" class="img-fluid rounded shadow" alt="Worship Leader" />
                     <h5 class="mt-2 fw-bold">Our Vision</h5>
                     <p class="text-muted">Empowering lives through faith and service.</p>
                 </div>
                 <div class="col-12 col-md-4 mb-3 mb-md-0">
-                    <img src="images/BRANDING/hands raised.jpg" class="img-fluid rounded shadow" alt="Church Mission">
+                    <img src="images/BRANDING/sbu-talking.png" class="img-fluid rounded shadow"
+                        alt="Church Community" />
                     <h5 class="mt-2 fw-bold">Our Mission</h5>
                     <p class="text-muted">To bring people closer to God and transform communities.</p>
                 </div>
                 <div class="col-12 col-md-4">
-                    <img src="images/BRANDING/cross light.avif" class="img-fluid rounded shadow" alt="Church Values">
+                    <img src="images/BRANDING/tasha-raised-hand.png" class="img-fluid rounded shadow"
+                        alt="Cross and Worship" />
                     <h5 class="mt-2 fw-bold">Our Values</h5>
                     <p class="text-muted">Faith, Love, Hope, and Service.</p>
                 </div>
